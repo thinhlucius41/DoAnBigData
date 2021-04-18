@@ -104,8 +104,8 @@ object SparkGraphXPageRank {
 
       //Bước 4: Tạo đối tượng luồng fos1 và liên kết nguồn dữ liệu
       val fos1 = new PrintWriter(new File("C:\\Users\\Thinh\\Downloads\\usernames.txt"))
-      val ConectComponents = dblpGraphX.vertices.join(cc).take(2000)
-      ConectComponents.foreach(paper => {
+      val allConectComponents = dblpGraphX.vertices.join(cc).take(2000)
+      allConectComponents.foreach(paper => {
         try {
           //Bước 5: Ghi dữ liệu paper kiểu dữ liệu (id,(tên bài báo,bài báo thuộc Connect Componet nào))
           fos1.write(s"[${paper._1}][${paper._2._1}][${paper._2._2}] \n")
